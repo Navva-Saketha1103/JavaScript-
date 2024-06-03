@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/3d62cdfb88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="userposts.css">
+    <style>
+        @media (max-width: 1100px) {
+            .popup{
+                width:40%;
+            }
+            .label{
+                width: 98%;
+            }
+        }
+        @media (max-width: 900px) {
+            .popup{
+                width:50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="btn">
+        <button class="Button">Delete</button>
+    </div>
+    <div class="pop">
+        <div class="popup" id="popup">
+            <div class="h">Alert</div>
+            <div class="p">Are you sure you want to delete your post?</div>
+            <div class="eg">
+                <button data-icon-popup-close class="cb">Close</button>
+                <button data-icon-popup-delete class="db">Delete</button>
+            </div>
+        </div>
+        <div class="popup1" id="popup1">
+            <div class="h">Alert</div>
+            <div class="p">Are you sure you want to delete all selected posts?</div>
+            <div class="eg">
+                <button data-cls-button class="cb">Close</button>
+                <button data-dlt-button class="db">Delete</button>
+            </div>
+        </div>
+        </div>
+    <div class="container"></div>
+    <div id="overlay"></div>
+</body>
+<script src="userposts.js"></script>
+</html>

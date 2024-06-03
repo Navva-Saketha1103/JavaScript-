@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="table.css">
+</head>
+
+<body id="body">
+</body>
+<script>
+    function setAtt(ele, key, value) {
+        ele.setAttribute(key, value);
+    }
+    url = "https://jsonplaceholder.typicode.com/users";
+    let table = document.createElement("table");
+    setAtt(table, "class", "table");
+    let body = document.getElementById("body");
+
+    function createTable(headings) {
+        let thead = document.createElement("thead");
+        setAtt(thead, "class", "head");
+        for (let x of headings) {
+            let th = document.createElement("th");
+            th.innerHTML = x;
+            thead.append(th);
+        }
+        table.append(thead);
+        body.append(table);
+    }
+    createTable(["Name", "Email", "Phone", "Website", "Company Name"]);
+    async function fun() {
+        let tBody = document.createElement("tbody");
+        setAtt(tBody, "class", "body");
+        let res = await fetch(url);
+        let data = await res.json();
+        tBody.innerHTML = "";
+
+        for (let d of data) {
+            let row = document.createElement("tr");
+
+            row.addEventListener('click', () => {
+                window.open("userPosts.html?id=" + d.id);
+            })
+            row.style.cursor = "pointer";
+
+            row.setAttribute("id", d.id);
+
+
+            function tdata(data) {
+                let td = document.createElement("td");
+                td.innerHTML = data;
+                row.appendChild(td);
+            }
+
+            tdata(d.name);
+            tdata(d.email);
+            tdata(d.phone);
+            tdata(d.website);
+            tdata(d.company.name);
+
+            tBody.appendChild(row);
+        }
+        table.append(tBody)
+    }
+    fun();
+</script>
+
+</html>
